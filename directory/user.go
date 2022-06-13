@@ -104,11 +104,21 @@ type DirectoryUser struct {
 	// ThumbnailPhotoUrl: Output only. Photo Url of the user (Read-only)
 	ThumbnailPhotoUrl string `json:"thumbnailPhotoUrl,omitempty"`
 
+	// Emails: all the emails assigned to the user
+	Emails []DirectoryUserEmail `json:"emails"`
+
 	// Groups: the groups the user belongs to
 	Groups []DirectoryUserGroup `json:"groups"`
 
 	// Authorities: the permissions granted to the user
 	Authorities []DirectoryUserAuthority `json:"authorities"`
+}
+
+// DirectoryUserEmail holds the info about one email for the user.
+type DirectoryUserEmail struct {
+	Address string `json:"address,omitempty"`
+	Type    string `json:"type,omitempty"`
+	Primary bool   `json:"primary,omitempty"`
 }
 
 // DirectoryUserOperatorInfo holds the info regarding BOT Operation.
